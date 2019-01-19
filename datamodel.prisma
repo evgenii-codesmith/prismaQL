@@ -1,0 +1,13 @@
+type User {
+  id: ID! @unique
+  email: String @unique
+  name: String!
+  trips: [Trip!]!
+}
+
+type Trip {
+  id: ID! @unique
+  country: String!
+  complete: Boolean! @default(value: "false")
+  author: User
+}

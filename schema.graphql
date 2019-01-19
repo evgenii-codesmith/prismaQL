@@ -1,0 +1,25 @@
+type Query {
+  completedTrips: [Trip!]!
+  trip(tripId: ID!): Trip
+  tripsByUser(userId: ID!): [Trip!]!
+}
+
+type Mutation {
+  createUser(name: String!): User
+  createTrip(country: String!, userId: ID!): Trip
+  complete(tripId: ID!): Trip
+}
+
+type User {
+  id: ID!
+  email: String
+  name: String!
+  trips: [Trip!]!
+}
+
+type Trip {
+  id: ID!
+  country: String!
+  complete: Boolean!
+  author: User
+}

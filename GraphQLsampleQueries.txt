@@ -1,0 +1,53 @@
+// Create user
+mutation {
+  createUser(name: "Bob") {
+    id
+  }
+}
+
+'Bob's ID: cjr1ba296002v0a20bv0u1ya7'
+
+// Create a trip for a user
+mutation {
+  createTrip(
+    country: "Croatia"
+    userId: "cjr1ba296002v0a20bv0u1ya7"
+  ) {
+    id
+    complete
+    author {
+      id
+    }
+  }
+}
+
+// Complete trip
+mutation {
+  complete(tripId: "cjr1bdx7x00310a20j37jx5xh") {
+    id
+    country
+    complete
+  }
+}
+
+// Get completed trips
+query {
+  completedTrips {
+    id
+    country
+    author {
+      id
+      name
+    }
+  }
+}
+
+// Get a trips by user id
+
+query{
+  tripsByUser(
+    userId: "cjr1ba296002v0a20bv0u1ya7"
+  ){
+    country
+  }
+}
